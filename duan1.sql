@@ -35,7 +35,7 @@ create table NHANHIEU
 );
 create table TRANGTHAISANPHAM 
 (
-	IdSp varchar(10) primary key,
+	IdTrangThai varchar(10) primary key,
 	TenTrangThai nvarchar(100) not null,
 	
 );
@@ -45,6 +45,7 @@ create table CHITIETSANPHAM
 	IdChiTietSanPham varchar(10) primary key,
 	IdSp varchar(10) not null,
 	IdTheLoai varchar(10) not null,
+	IdTrangThai varchar(10) not null,
 	TenSp nvarchar(100) not null,
 	SoLuong int not null,
 	GiaNhap float not null,
@@ -53,7 +54,7 @@ create table CHITIETSANPHAM
 	KichCo nvarchar(100),
 	constraint fk_sp foreign key ( IdSp ) references SANPHAM ( IdSp ),
 	constraint fk_tl foreign key ( IdTheLoai ) references THELOAI ( IdTheLoai ),
-	constraint fk_ttsp foreign key ( IdSp ) references TRANGTHAISANPHAM ( IdSp )
+	constraint fk_ttsp foreign key ( IdTrangThai ) references TRANGTHAISANPHAM ( IdTrangThai )
 );
 
 
